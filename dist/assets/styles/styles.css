@@ -1,3 +1,20 @@
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+#opaque {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: block;
+    background-color: black;
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+}
+
 .top-nav {
     position: fixed;
     top: 0px;
@@ -13,7 +30,6 @@
 }
 
 #title {
-    font-family: 'Raleway', sans-serif;
     color: white;
     margin: 0;
 }
@@ -31,9 +47,8 @@
     width: 20%;
     background-color: hsl(0, 0%, 100%);
     z-index: 2;
-    font-family: 'Raleway', sans-serif;
     padding-top: 7em;
-    border: 3px solid hsla(0, 0%, 0%, 0.219);
+    border: 3px solid hsla(0, 0%, 0%, 0.219)
 }
 
 .project-list {
@@ -43,15 +58,15 @@
 
 .project {
     list-style-type: none;
-    float: left;
-    margin-left: -1em;
+    float: left
 }
 
 .project img {
     position: relative;
-    top: -0.7em;
+    top: -0.5em;
     float: left;
-    width: 2.6em;
+    width: 2em;
+    margin-right: -0.3em;
 }
 
 #add-item-btn {
@@ -61,8 +76,7 @@
     border-radius: 50%;
     border: 0px transparent;
     width: 4.5rem;
-    height: 4.5rem;
-
+    height: 4.5rem
 }
 
 #add-item-btn img {
@@ -71,4 +85,152 @@
     bottom: -3.42rem;
     width: 10rem;
     height: 10rem;
+}
+
+#add-task-modal {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    background-color: white;
+    z-index: 10000;
+    height: 60%;
+    width: 60%;
+    top: 20%;
+    left: 20%;
+    border: 2px solid hsl(175, 54%, 59%);
+    border-radius: 10px 10px;
+}
+
+#add-task-modal h2 {
+    margin-top: 0px;
+    background-color: hsl(175, 54%, 59%);
+    color: white;
+    text-align: center;
+}
+
+#add-task-modal h2 span img {
+    position: absolute;
+    width: 0.45em;
+    top: 0.7em;
+}
+
+#new-task-form input[type=text] {
+    display: inline-block;
+    width: 90%;
+    margin-left: 2em;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#new-task-form label {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#description {
+    height: 5em;
+}
+
+#due-date {
+    display: inline-block;
+    width: 90%;
+    margin-left: 2em;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#new-task-form fieldset {
+    width: 90%;
+    margin: 2em;
+    margin-bottom: 0;
+}
+
+#new-task-form button {
+    border: 0px transparent;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    box-shadow: 1px 1.5px 1px 0px hsla(0, 0%, 0%, 0.315);
+}
+
+#new-task-form button:hover {
+    border: 2px solid black;
+    width: 110px;
+    height: 40px;
+    transition-duration: 100ms;
+    box-shadow: 3px 4px 1px 0px hsla(0, 0%, 0%, 0.384);
+    transition-duration: 200ms;
+}
+
+#add-task-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-color: hsl(175, 54%, 59%);
+}
+
+
+
+#add-task-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#add-task-btn span:after {
+    content: "+";
+    color: hsl(224, 100%, 58%);
+    position: absolute;
+    opacity: 0;
+    top: -6px;
+    right: -40px;
+    transition: 0.5s;
+    font-size: 30px;
+}
+
+#add-task-btn:hover span {
+    padding-right: 15px;
+}
+
+#add-task-btn:hover span:after {
+    opacity: 1;
+    right: 0
+}
+
+
+#cancel-add-task-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 140px;
+    background-color: hsla(0, 0%, 13%, 0.219);
+}
+
+#cancel-add-task-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#cancel-add-task-btn span:after {
+    content: "\0398";
+    color: hsl(0, 53%, 39%);
+    position: absolute;
+    opacity: 0;
+    top: -1px;
+    right: -30px;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+#cancel-add-task-btn:hover span {
+    padding-right: 20px;
+}
+
+#cancel-add-task-btn:hover span:after {
+    opacity: 1;
+    right: 0
 }
