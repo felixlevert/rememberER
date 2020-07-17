@@ -1,0 +1,51 @@
+******APP init******
+    Populate project list by looping through DB and calling project list function
+    Create (hidden) project elements from DB // do this when clicking on projects? what is better?
+    Instantiate button DOM class
+
+
+
+
+
+******CONNECTING THE MODALS TO THE PLUS BUTTONS THROUGH THE DOM*****
+    Button handler class
+    adds event listeners to buttons, define functions that reveal modals.
+    
+    build just one function that takes a type argument and reveals the right modal through a string literal variable in the ID.
+    gets instantiated by init function looping through all buttons?
+
+
+
+
+*****DATABASE*****
+    Temporarily just array of objects in a separate file.
+    Use local storage at first?
+    Each project has ID, title, description and array of TASK objects.
+
+
+****PROJECT LIST class/funct/whatevs*****
+    Populates project list in left navbar
+    attach click listeners to each project, reveals DOM element defined in project class?
+    Drag and drop to reorder items?
+
+
+*****PROJECT CLASS*****
+    --- Function that creates the DOM elements for the main part of screen
+            Default for when no tasks yet, screen telling you to add some.
+            Grabs all tasks from DB and creates DOM elements. (ul?)
+            Just a list of titles + due dates at first, click on it reveals description 
+                in drop down box, pushes other items down. (Add more things to tasks eventually)
+
+    DONE function that marks the task as done. (separate section on page? Move to bottom with checkmark/diff color?)
+
+    DELETE function that removes the task completely.
+        Design idea: little trash can icon / STOP icon greyed out on main task line, when click pushes element sideways reveals red DELETE button underneath.
+
+
+*****ADD PROJECT CLASS / HELPER FUNCTION *****
+    Needs to be connected to the add project modal ADD button.
+    Creates ID for project.
+    Adds a project object to the DATABASE that has the ID, title, description and an empty array of tasks.
+    Triggers project list function to add to the project list.
+
+*****ADD TASK CLASS / HELPER FUNCTION *****

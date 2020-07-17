@@ -9,7 +9,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1000;
-    display: block;
+    display: none;
     background-color: black;
     filter: alpha(opacity=30);
     opacity: 0.3;
@@ -47,8 +47,27 @@ body {
     width: 20%;
     background-color: hsl(0, 0%, 100%);
     z-index: 2;
-    padding-top: 7em;
+    padding-top: 2.7em;
     border: 3px solid hsla(0, 0%, 0%, 0.219)
+}
+
+#controls {
+    display: block;
+    height: 3em;
+    border-bottom: 1px solid hsla(0, 0%, 13%, 0.219);
+    box-shadow: -3px -1.5px 10px 2px hsla(0, 0%, 13%, 0.219);
+    padding-top: 0.4em;
+    padding-left: 1em;
+}
+
+#new-project-btn {
+    position: absolute;
+    right: 0.2em;
+    top: 1.05em;
+    background-color: transparent;
+    border: 0px transparent;
+    color: hsl(175, 54%, 59%);
+    font-size: 50px;
 }
 
 .project-list {
@@ -89,7 +108,7 @@ body {
 
 #add-task-modal {
     position: absolute;
-    display: inline-block;
+    display: none;
     cursor: pointer;
     background-color: white;
     z-index: 10000;
@@ -231,6 +250,145 @@ body {
 }
 
 #cancel-add-task-btn:hover span:after {
+    opacity: 1;
+    right: 0
+}
+
+
+#add-project-modal {
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    background-color: white;
+    z-index: 10000;
+    height: 60%;
+    width: 60%;
+    top: 20%;
+    left: 20%;
+    border: 2px solid hsl(175, 54%, 59%);
+    border-radius: 10px 10px;
+    box-shadow: 2px 5px 5px 5px hsla(0, 0%, 13%, 0.116);
+}
+
+#add-project-modal h2 {
+    margin-top: 0px;
+    background-color: hsl(175, 54%, 59%);
+    color: white;
+    text-align: center;
+}
+
+#add-project-modal h2 span img {
+    position: absolute;
+    width: 0.45em;
+    top: 0.7em;
+}
+
+#new-project-form input[type=text] {
+    display: inline-block;
+    width: 90%;
+    margin-left: 2em;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#new-project-form label {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+#new-project-form fieldset {
+    width: 90%;
+    margin: 2em;
+    margin-bottom: 0;
+}
+
+#new-project-form button {
+    border: 0px transparent;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    box-shadow: 1px 1.5px 1px 0px hsla(0, 0%, 0%, 0.315);
+}
+
+#new-project-form button:hover {
+    border: 2px solid black;
+    width: 110px;
+    height: 40px;
+    transition-duration: 100ms;
+    box-shadow: 3px 4px 1px 0px hsla(0, 0%, 0%, 0.384);
+    transition-duration: 200ms;
+}
+
+#add-project-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background-color: hsl(175, 54%, 59%);
+}
+
+
+
+#add-project-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#add-project-btn span:after {
+    content: "+";
+    color: hsl(224, 100%, 58%);
+    position: absolute;
+    opacity: 0;
+    top: -6px;
+    right: -40px;
+    transition: 0.5s;
+    font-size: 30px;
+}
+
+#add-project-btn:hover span {
+    padding-right: 15px;
+}
+
+#add-project-btn:hover span:after {
+    opacity: 1;
+    right: 0
+}
+
+
+#cancel-add-project-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 140px;
+    background-color: hsla(0, 0%, 13%, 0.219);
+}
+
+#cancel-add-project-btn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#cancel-add-project-btn span:after {
+    content: "\0398";
+    color: hsl(0, 53%, 39%);
+    position: absolute;
+    opacity: 0;
+    top: -1px;
+    right: -30px;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+#cancel-add-project-btn:hover span {
+    padding-right: 20px;
+}
+
+#cancel-add-project-btn:hover span:after {
     opacity: 1;
     right: 0
 }

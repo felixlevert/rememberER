@@ -32,11 +32,35 @@
             <button type="submit" id="add-task-btn"><span>add </span></button>
         </form>
     </div>
+    <div id="add-project-modal">
+        <h2>new project<span><img src="./assets/images/blue-dot.png" alt="blue dot"></span></h2>
+        <form id="new-project-form">
+            <fieldset>
+                <legend>project type</legend>
+                <select>
+                    <option value="disabled">choose type</option>
+                    <option>coding</option>
+                    <option>travel</option>
+                    <option>home</option>
+                    <option>other</option>
+                </select>
+            </fieldset>
+            <label for="project-name">project name</label>
+            <input type="text" id="task-name" placeholder="project name">
+            <label for="description">description</label>
+            <input type="text" id="description" placeholder="description">
+            <button id="cancel-add-project-btn"><span>cancel </span></button>
+            <button type="submit" id="add-project-btn"><span>add </span></button>
+        </form>
+    </div>
     <nav class="top-nav">
         <h1 id="title">rememberER<span><img src="./assets/images/blue-dot.png" alt="blue dot"></span></h1>
     </nav>
-    <div id="main">
         <nav id="side-nav">
+            <div id="controls">
+                <h3>projects</h3>
+                <button id="new-project-btn">+</button>
+            </div>
             <ul class="project-list">
                 <li class="project">
                     <img src="assets/images/teal-partial-dot.png" alt="teal dot">
@@ -59,7 +83,7 @@
         </nav>
 
         <button id="add-item-btn"><img src="./assets/images/teal-plus-dot.png" alt="add project button"></button>
-    </div>
+
 
 </body>
 
