@@ -13,6 +13,7 @@ body {
     background-color: black;
     filter: alpha(opacity=30);
     opacity: 0.3;
+    transition-duration: 200ms;
 }
 
 .top-nav {
