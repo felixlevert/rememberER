@@ -13,7 +13,10 @@ body {
     background-color: black;
     filter: alpha(opacity=30);
     opacity: 0.3;
-    transition-duration: 200ms;
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.6s;
+    animation-name: fadeIn;
+    animation-duration: 0.6s
 }
 
 .top-nav {
@@ -119,6 +122,10 @@ body {
     left: 20%;
     border: 2px solid hsl(175, 54%, 59%);
     border-radius: 10px 10px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
 }
 
 #add-task-modal h2 {
@@ -191,8 +198,6 @@ body {
     background-color: hsl(175, 54%, 59%);
 }
 
-
-
 #add-task-btn span {
     cursor: pointer;
     display: inline-block;
@@ -219,7 +224,6 @@ body {
     opacity: 1;
     right: 0
 }
-
 
 #cancel-add-task-btn {
     position: absolute;
@@ -255,7 +259,6 @@ body {
     right: 0
 }
 
-
 #add-project-modal {
     position: absolute;
     display: none;
@@ -269,6 +272,10 @@ body {
     border: 2px solid hsl(175, 54%, 59%);
     border-radius: 10px 10px;
     box-shadow: 2px 5px 5px 5px hsla(0, 0%, 13%, 0.116);
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
 }
 
 #add-project-modal h2 {
@@ -298,7 +305,6 @@ body {
     margin-top: 20px;
     margin-left: 20px;
 }
-
 
 #new-project-form fieldset {
     width: 90%;
@@ -330,8 +336,6 @@ body {
     background-color: hsl(175, 54%, 59%);
 }
 
-
-
 #add-project-btn span {
     cursor: pointer;
     display: inline-block;
@@ -358,7 +362,6 @@ body {
     opacity: 1;
     right: 0
 }
-
 
 #cancel-add-project-btn {
     position: absolute;
@@ -392,4 +395,46 @@ body {
 #cancel-add-project-btn:hover span:after {
     opacity: 1;
     right: 0
+}
+
+/* Modal Animations */
+
+@-webkit-keyframes slideIn {
+    from {
+        top: 100%;
+        opacity: 0
+    }
+    to {
+        top: 20%;
+        opacity: 1
+    }
+}
+
+@keyframes slideIn {
+    from {
+        top: 100%;
+        opacity: 0
+    }
+    to {
+        top: 20%;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 0.3
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 0.3
+    }
 }
