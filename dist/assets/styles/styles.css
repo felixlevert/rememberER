@@ -1,22 +1,27 @@
 body {
     font-family: 'Raleway', sans-serif;
+    overflow: hidden;
 }
 
 #opaque {
-    position: fixed;
+    position: absolute;
     top: 0px;
     left: 0px;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     z-index: 1000;
-    display: none;
+    display: block;
     background-color: black;
-    filter: alpha(opacity=30);
-    opacity: 0.3;
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.6s;
-    animation-name: fadeIn;
-    animation-duration: 0.6s
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s 1s, opacity 0.3s ease-out;
+}
+
+#opaque.show {
+    opacity: 0.4;
+    visibility: visible;
+    transition: visibility 0s 0s, opacity 0.6s ease-out;
 }
 
 .top-nav {
@@ -72,6 +77,16 @@ body {
     border: 0px transparent;
     color: hsl(175, 54%, 59%);
     font-size: 50px;
+    transition-duration: 0.4s;
+}
+
+#new-project-btn:hover {
+    font-size: 60px;
+    top: 0.75em;
+}
+
+#new-project-btn:focus {
+    outline: 0
 }
 
 .project-list {
@@ -79,17 +94,42 @@ body {
     flex-direction: column;
 }
 
-.project {
+.nav-project {
     list-style-type: none;
-    float: left
+    float: left;
+    margin-top: 1em;
 }
 
-.project img {
+.plane-icon {
     position: relative;
-    top: -0.5em;
+    top: -0.1em;
     float: left;
     width: 2em;
-    margin-right: -0.3em;
+    left: -0.3em;
+}
+
+.home-icon {
+    position: relative;
+    top: -0.2em;
+    float: left;
+    width: 2em;
+    left: -0.4em;
+}
+
+.other-icon {
+    position: relative;
+    top: -0.2em;
+    float: left;
+    width: 2em;
+    left: -0.4em;
+}
+
+.coding-icon {
+    position: relative;
+    top: 0.1em;
+    float: left;
+    width: 1.3em;
+    margin-right: 0.6em;
 }
 
 #add-item-btn {
@@ -110,22 +150,39 @@ body {
     height: 10rem;
 }
 
+#add-item-btn img:hover {
+    width: 11rem;
+    height: 11rem;
+    transition-duration: 100ms;
+    transition-duration: 200ms;
+}
+
+#add-item-btn:focus {
+    outline: 0;
+
+}
+
 #add-task-modal {
     position: absolute;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     cursor: pointer;
     background-color: white;
     z-index: 10000;
     height: 60%;
     width: 60%;
-    top: 20%;
+    top: 100%;
     left: 20%;
     border: 2px solid hsl(175, 54%, 59%);
     border-radius: 10px 10px;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s
+    transition: visibility 0s 1s, top 0.4s, opacity 0.4s ease-out;
+}
+
+#add-task-modal.show {
+    top: 20%;
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0s 0s, top 0.4s, opacity 0.4s ease-out;
 }
 
 #add-task-modal h2 {
@@ -261,21 +318,26 @@ body {
 
 #add-project-modal {
     position: absolute;
-    display: none;
+    opacity: 0;
     cursor: pointer;
     background-color: white;
     z-index: 10000;
     height: 60%;
     width: 60%;
-    top: 20%;
+    top: 100%;
     left: 20%;
+    visibility: hidden;
     border: 2px solid hsl(175, 54%, 59%);
     border-radius: 10px 10px;
     box-shadow: 2px 5px 5px 5px hsla(0, 0%, 13%, 0.116);
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s
+    transition: visibility 0s 1s, top 0.4s, opacity 0.4s ease-out;
+}
+
+#add-project-modal.show {
+    top: 20%;
+    opacity: 1;
+    visibility: visible;
+    transition: visibility 0s 0s, top 0.4s, opacity 0.4s ease-out;
 }
 
 #add-project-modal h2 {
@@ -397,44 +459,3 @@ body {
     right: 0
 }
 
-/* Modal Animations */
-
-@-webkit-keyframes slideIn {
-    from {
-        top: 100%;
-        opacity: 0
-    }
-    to {
-        top: 20%;
-        opacity: 1
-    }
-}
-
-@keyframes slideIn {
-    from {
-        top: 100%;
-        opacity: 0
-    }
-    to {
-        top: 20%;
-        opacity: 1
-    }
-}
-
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 0.3
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0
-    }
-    to {
-        opacity: 0.3
-    }
-}
