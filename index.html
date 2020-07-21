@@ -17,10 +17,12 @@
         <h2>new task<span><img src="./dist/assets/images/blue-dot.png" alt="blue dot"></span></h2>
         <form id="new-task-form">
             <fieldset>
-                <legend>project</legend>
+                <legend>priority</legend>
                 <select>
-                    <option value="disabled">choose project</option>
-                    <option>project 1</option>
+                    <option value="disabled">choose priority</option>
+                    <option>urgent</option>
+                    <option>important</option>
+                    <option>low priority</option>
                 </select>
             </fieldset>
             <label for="task-name">task name</label>
@@ -28,7 +30,7 @@
             <label for="due-date">due date</label>
             <input type="text" id="due-date" placeholder="due date" onfocus="(this.type='date')">
             <label for="description">description</label>
-            <input type="text" id="description" placeholder="description">
+            <input type="text" id="task-description" placeholder="description">
             <button type="button" id="cancel-add-task-btn"><span>cancel </span></button>
             <button type="submit" id="add-task-btn"><span>add </span></button>
         </form>
@@ -47,9 +49,9 @@
                 </select>
             </fieldset>
             <label for="project-name">project name</label>
-            <input type="text" id="task-name" placeholder="project name">
+            <input type="text" id="project-name" placeholder="project name">
             <label for="description">description</label>
-            <input type="text" id="description" placeholder="description">
+            <input type="text" id="project-description" placeholder="description">
             <button type="button" id="cancel-add-project-btn"><span>cancel </span></button>
             <button type="submit" id="add-project-btn"><span>add </span></button>
         </form>
@@ -57,18 +59,50 @@
     <nav class="top-nav">
         <h1 id="title">rememberER<span><img src="./dist/assets/images/blue-dot.png" alt="blue dot"></span></h1>
     </nav>
-        <nav id="side-nav">
-            <div id="controls">
-                <h3>projects</h3>
-                <button id="new-project-btn">+</button>
-            </div>
-            <ul id="project-list" class="project-list">
-            </ul>
+    <nav id="side-nav">
+        <div id="controls">
+            <h3>PROJECTS</h3>
+            <button id="new-project-btn">+</button>
+        </div>
+        <ul id="project-list" class="project-list">
+        </ul>
 
-        </nav>
-
+    </nav>
+    <div id="main">
+        <!-- <div id="home-screen">
+            <h1>Welcome, YOURNAME!</h1>
+            <h3>Pick a project, or create a new one!</h3>
+        </div> -->
         <button id="add-item-btn"><img src="./dist/assets/images/teal-plus-dot.png" alt="add project button"></button>
+   
 
+    <div class="main-project-element">
+        <div class="main-project-header">
+            <h1 class="main-project-title">proj title</h1>
+            <h2 class="main-project-type">coding</h2>
+            <p class="main-project-description">This is a project, blah blah blah, lorem ipsum blob</p>
+        </div>
+        <!-- <div class="project-tasks-placeholder">
+            <h2>Add some tasks to this project with the button below!</h2>
+        </div> -->
+        <div class="main-project-tasks">
+             <ul class="task-list">
+                <li class="task-element">
+                    FIRST TASK 
+                </li>
+                <li class="task-element">
+                    SECOND TASK 
+                </li>
+                <li class="task-element">
+                    THIRD TASK 
+                </li>
+                <li class="task-element">
+                    FOURTH TASK 
+                </li>
+             </ul>
+        </div> 
+    </div>
+</div>
 
 </body>
 
