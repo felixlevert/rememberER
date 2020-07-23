@@ -78,12 +78,32 @@ body {
 }
 
 #controls {
-    display: block;
     height: 3em;
     border-bottom: 1px solid hsla(0, 0%, 13%, 0.219);
     box-shadow: -3px -1.5px 10px 2px hsla(0, 0%, 13%, 0.219);
     padding-top: 0.4em;
     padding-left: 1em;
+}
+
+#new-project-btn {
+
+    float: right;
+    margin-top: -1.2em;
+    margin-right: 0.1em;
+    background-color: transparent;
+    border: 0px transparent;
+    color: hsl(175, 54%, 59%);
+    font-size: 50px;
+    transition-duration: 0.4s;
+}
+
+#new-project-btn:hover {
+    font-size: 60px;
+    top: 0.75em;
+}
+
+#new-project-btn:focus {
+    outline: 0
 }
 
 .main-project-header {
@@ -137,25 +157,8 @@ body {
     opacity: 0.59;
 }
 
-#new-project-btn {
-    position: absolute;
-    right: 0.2em;
-    top: 1.05em;
-    background-color: transparent;
-    border: 0px transparent;
-    color: hsl(175, 54%, 59%);
-    font-size: 50px;
-    transition-duration: 0.4s;
-}
 
-#new-project-btn:hover {
-    font-size: 60px;
-    top: 0.75em;
-}
 
-#new-project-btn:focus {
-    outline: 0
-}
 
 .project-list {
     display: flex;
@@ -203,7 +206,7 @@ body {
 #add-item-btn {
     position: absolute;
     right: 5em;
-    bottom: 5em;
+    bottom: 8em;
     border-radius: 50%;
     border: 0px transparent;
     width: 4.5rem;
