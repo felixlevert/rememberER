@@ -32,14 +32,18 @@
 *****PROJECT CLASS*****
     --- Function that creates the DOM elements for the main part of screen
             Default for when no tasks yet, screen telling you to add some.
-            Grabs all tasks from DB and creates DOM elements. (ul?)
-            Just a list of titles + due dates at first, click on it reveals description 
-                in drop down box, pushes other items down. (Add more things to tasks eventually)
+            Grabs all tasks from DB, use task class for DOM elements, add them all to page.
+            
 
     DONE function that marks the task as done. (separate section on page? Move to bottom with checkmark/diff color?)
 
     DELETE function that removes the task completely.
         Design idea: little trash can icon / STOP icon greyed out on main task line, when click pushes element sideways reveals red DELETE button underneath.
+
+**** TASK CLASS *****
+    creates DOM element for each task, with revealable description
+    Just title + due date at first, click on it reveals description 
+                in drop down box, pushes other items down. (Add more things to tasks eventually)
 
 
 *****ADD PROJECT CLASS / HELPER FUNCTION *****
@@ -49,3 +53,7 @@
     Triggers project list function to add to the project list.
 
 *****ADD TASK CLASS / HELPER FUNCTION *****
+    Connected to add task modal ADD button.
+    Creates ID for task.
+    Takes title, due date and description
+    Instantiates TASK class to create element and add it to the project page.
