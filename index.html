@@ -71,40 +71,41 @@
 
         </nav>
         <div id="main">
-            <!-- <div id="home-screen">
+            <div id="home-screen">
                 <h1>Welcome, YOURNAME!</h1>
                 <h3>Pick a project, or create a new one!</h3>
-            </div> -->
+            </div>
             <button id="add-item-btn"><img src="./dist/assets/images/teal-plus-dot.png" alt="add project button"></button>
     
 
-            <div class="main-project-element">
+            <template class="main-project-element">
                 <div class="main-project-header">
                     <h1 class="main-project-title">proj title</h1>
                     <h2 class="main-project-type">coding</h2>
                     <p class="main-project-description">This is a project, blah blah blah, lorem ipsum blob</p>
-            </div>
-            <!-- <div class="project-tasks-placeholder">
+                </template>
+            <div class="project-tasks-placeholder">
                 <h2>Add some tasks to this project with the button below!</h2>
-            </div> -->
-            <div class="main-project-tasks">
+            </div>
+            <template class="main-project-tasks">
                 <ul class="task-list">
                     <li class="task-element">
                         <p>FIRST TASK </p>
                         <p>due: 2020-05-08 at 16:00</p>
                         <img src="./dist/assets/images/more-menu.png">
                     </li>
-                    <li class="task-element">
-                        SECOND TASK 
-                    </li>
-                    <li class="task-element">
-                        THIRD TASK 
-                    </li>
-                    <li class="task-element">
-                        FOURTH TASK 
+                    <li class="task-element-expand">
+                        
+                          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        
+                        <div class="task-buttons-container">
+                          <button type="button" class="delete-task-btn">DELETE</button>
+                          <button type="button" class="edit-task-btn">EDIT</button>
+                          <button type="button" class="done-task-btn">DONE!</button>
+                        </div>
                     </li>
                 </ul>
-            </div>
+            </template>
         </div>
     </div>
 
