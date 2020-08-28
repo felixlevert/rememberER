@@ -1,55 +1,100 @@
+import { projectsDb } from './projectsDatabase.js'
 
 export class Project {
     constructor(projId, projType, projTitle, projDesc) {
         this.id = projId;
+        this.type = projType;
+        this.title = projTitle;
+        this.desc = projDesc;
         this.navbarEl(projId, projType, projTitle);
-        this.mainProjectEl(projId, projType, projTitle, projDesc);
     }
 
 
     navbarEl(id, type, title) {
         const projList = document.getElementById('project-list');
-        const projectNavElement = document.createElement('li');
+        const template = document.getElementById('project-nav-el-template');
+        const projectNavElement = document.createElement('div');
+        projectNavElement.append(template.content.cloneNode(true));
+        const projectButton = projectNavElement.querySelector('button');
         projectNavElement.id = id;
-        projectNavElement.className = 'nav-project';
         const icons = {
             'travel': "./dist/assets/images/plane-icon.png",
             'home': "./dist/assets/images/home-icon.png",
             'coding': "./dist/assets/images/coding-icon.png",
             'other': "./dist/assets/images/other-icon.png"
         }
-        const projectIcon = document.createElement('img');
+        const projectIcon = projectButton.querySelector('img');
         
         projectIcon.src = icons[type];
         projectIcon.className = `${type}-icon`;
-        projectNavElement.textContent = title;
-        projectNavElement.appendChild(projectIcon);
+        projectButton.textContent = title;
+        projectButton.appendChild(projectIcon);
         projList.appendChild(projectNavElement);
-        projectNavElement.addEventListener('click', this.projectNavHandler);
+        projectButton.addEventListener('click', this.projectNavHandler);
     }
 
-
-    mainProjectEl(id, type, title, desc) {
-        const mainDiv = document.getElementById('main');
-        const template = document.querySelector('.main-project-element');
-        const mainProjectElement = document.createElement('div');
-        mainProjectElement.append(template.content.cloneNode(true));
-        mainProjectElement.id = `${id}-tasks-element`;
-        mainProjectElement.querySelector('h2').textContent = title;
-        mainProjectElement.querySelector('h3').textContent = type;
-        mainProjectElement.querySelector('p').textContent = desc;
-        mainDiv.appendChild(mainProjectElement);
-        console.log(mainProjectElement)
-    }
 
     projectNavHandler = () => {
-        const mainProjectEl = document.getElementById(`${this.id}-tasks-element`);
-        const header = mainProjectEl.querySelector('.main-project-header');
+        const mainProjectEl = document.getElementById('main-project-element');
         const homeScreen = document.getElementById('home-screen');
-        header.classList.toggle('show');
-        console.log(homeScreen.style)
-        if (homeScreen.style.visibility == 'visible') {
+        this.generateProjectHeader(this.type, this.title, this.desc);
+        this.generateTaskList(this.id);
+        if (window.getComputedStyle(mainProjectEl).visibility !== 'visible') {
+            mainProjectEl.classList.toggle('show');    
+        }
+        
+        if (window.getComputedStyle(homeScreen).visibility == 'visible') {
             homeScreen.classList.toggle('show');
         }
+    }
+
+    
+    generateProjectHeader(type, title, description) {
+        const header = document.querySelector('.main-project-header');
+        header.querySelector('.main-project-title').textContent = title;
+        header.querySelector('.main-project-type').textContent = type;
+        header.querySelector('.main-project-description').textContent = description;
+        
+    }
+
+
+    generateTaskList(id) {
+        const project = projectsDb[(id - 1)];
+                        
+        this.taskPlaceholderHandler(project);
+
+        for (const task of project.tasks) {
+            this.createTaskElement(task);
+        }
+        
+    }
+
+    taskPlaceholderHandler(project) {
+        const placeholder = document.getElementById('project-tasks-placeholder');
+
+        if (project.tasks.length === 0) {
+            if (window.getComputedStyle(placeholder).visibility == 'hidden') {
+                placeholder.classList.toggle('show');
+            }
+        }
+
+        if (project.tasks.length !== 0) {
+            if (window.getComputedStyle(placeholder).visibility == 'visible') {
+                placeholder.classList.toggle('show');
+            }
+        }
+    }
+
+    createTaskElement(task) {
+        const taskList = document.getElementById('task-list');
+        const template = document.getElementById('task-element-template');
+        const taskEl = document.createElement('div');
+
+        taskEl.append(template.content.cloneNode(true));
+        taskEl.id = task.id;
+        taskEl.querySelector('.task-name').textContent = task.title;
+        taskEl.querySelector('.due-date').textContent = task.dueDate;
+
+        taskList.appendChild(taskEl);
     }
 }

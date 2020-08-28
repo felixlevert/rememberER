@@ -16,11 +16,13 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
+    z-index: 1;
 }
 
 #home-screen {
     visibility: visible;
     margin-top: 10%;
+    margin-right: 25%;
     font-size: 20px;
     color: hsla(0, 0%, 48%, 0.753)
 }
@@ -70,7 +72,6 @@ body {
 
 #title {
     color: white;
-    margin-left: 12em;
     margin-bottom: 0;
 }
 
@@ -83,7 +84,8 @@ body {
 #side-nav {
     height: 100%;
     background-color: hsl(0, 0%, 100%);
-    border-right: 3px solid hsla(0, 0%, 0%, 0.219)
+    border-right: 3px solid hsla(0, 0%, 0%, 0.219);
+    z-index: 2;
 }
 
 #controls {
@@ -115,40 +117,55 @@ body {
     outline: 0
 }
 
+#main-project-element {
+    position: fixed;
+    top: 6em;
+    visibility: hidden;
+}
 
+#main-project-element.show {
+    visibility: visible;
+}
 
 .main-project-header {
-    visibility: hidden;
+    width: 250%;
     box-shadow: 0px 8px 10px -10px hsla(0, 0%, 48%, 0.753);
 }
 
-.main-project-header.show {
-    visibility: visible;
-}
+
 
 .main-project-title {
     color: hsla(0, 0%, 0%, 0.678);
     margin-bottom: -0.5em;
+    margin-right: 25%;
 }
 
 .main-project-type {
     color: hsl(0, 0%, 59%);
     font-size: 22px;
+    margin-right: 25%;
 }
 
 .main-project-description {
     color: hsl(0, 0%, 49%);
     padding-bottom: 1em; 
+    margin-right: 25%;
 }
 
-.project-tasks-placeholder {
-    visibility: visible;
+#project-tasks-placeholder {
+    visibility: hidden;
     color: hsl(0, 0%, 49%);
     padding-top: 3%;
+    width: 100%;
+    margin-left: 45%;
 }
 
-.task-list {
-    visibility: hidden;
+#project-tasks-placeholder.show {
+    visibility: visible;
+}
+
+#task-list {
+    visibility: visible;
     margin-left: -2.5em;
     top: 25%;
     width: 100%;
@@ -174,6 +191,9 @@ body {
     width: 20px;
     margin-top: 0.8em;
     opacity: 0.59;
+}
+.more {
+    display: none;
 }
 
 .task-element-expand {
@@ -239,6 +259,25 @@ body {
     list-style-type: none;
     float: left;
     margin-top: 1em;
+    width: 100%;
+}
+
+.nav-proj-btn {
+    border: none;
+    background-color: white;
+    width: 114%;
+    height: 33px;
+    position: relative;
+    text-align: left;
+    padding-left: 10%;
+    left: -14%; 
+}
+
+.nav-proj-btn:hover {
+    height: 35px;
+    font-size: 110%;
+    box-shadow: 0px 5px 10px 2px hsla(0, 0%, 0%, 0.219);
+    transition-duration: 0.2s;
 }
 
 .travel-icon {
@@ -246,7 +285,7 @@ body {
     top: -0.1em;
     float: left;
     width: 2em;
-    left: -0.3em;
+    left: -0.8em;
 }
 
 .home-icon {

@@ -7,12 +7,12 @@ export const projectsDb = [
     tasks: [
       {
         title: 'task 1',
-        // dueDate: 2020 - 09 - 09,
+        dueDate: '2020 - 09 - 09',
         description: 'Things that have to be done',
       },
       {
         title: 'task 2',
-        // dueDate: 2020 - 09 - 09,
+        dueDate: '2020 - 09 - 09',
         description: 'MOAR Things that have to be done',
       },
     ],
@@ -21,11 +21,11 @@ export const projectsDb = [
     id: 2,
     title: 'second project',
     type: 'home',
-    description: 'This is a test project, the first of its kind',
+    description: 'This is a test project, the SECOND of its kind',
     tasks: [
       {
         title: 'task 43434',
-        // dueDate: 2020 - 09 - 09,
+        dueDate: '2020 - 09 - 09',
         description: 'MOAR Things that have to be done',
       },
     ],
