@@ -57,10 +57,18 @@ export class Project {
         
     }
 
+    clearTasks() {
+        const taskList = document.getElementById('task-list');
+
+        const emptyList = taskList.cloneNode(false);
+        taskList.parentNode.replaceChild(emptyList, taskList);
+    }
+
 
     generateTaskList(id) {
         const project = projectsDb[(id - 1)];
-                        
+        
+        this.clearTasks();
         this.taskPlaceholderHandler(project);
 
         for (const task of project.tasks) {
@@ -85,6 +93,10 @@ export class Project {
         }
     }
 
+    revealMoreTaskHandler(taskElement) {
+        taskElement.classList.toggle('show');
+    }
+
     createTaskElement(task) {
         const taskList = document.getElementById('task-list');
         const template = document.getElementById('task-element-template');
@@ -94,6 +106,10 @@ export class Project {
         taskEl.id = task.id;
         taskEl.querySelector('.task-name').textContent = task.title;
         taskEl.querySelector('.due-date').textContent = task.dueDate;
+        taskEl.querySelector('.task-description').textContent = task.description;
+
+        const expandButton = taskEl.querySelector('.task-expand-button');
+        expandButton.addEventListener('click', this.revealMoreTaskHandler(taskEl));
 
         taskList.appendChild(taskEl);
     }
