@@ -35,8 +35,9 @@ export class Project {
 
 
     projectNavHandler = () => {
-        const mainProjectEl = document.getElementById('main-project-element');
+        const mainProjectEl = document.querySelector('.main-project-element');
         const homeScreen = document.getElementById('home-screen');
+        mainProjectEl.id = this.id;
         this.generateProjectHeader(this.type, this.title, this.desc);
         this.generateTaskList(this.id);
         if (window.getComputedStyle(mainProjectEl).visibility !== 'visible') {
@@ -94,7 +95,7 @@ export class Project {
     }
 
     revealMoreTaskHandler(taskElement) {
-        taskElement.classList.toggle('show');
+        taskElement.querySelector('.task-element-expand').classList.toggle('show');
     }
 
     createTaskElement(task) {
@@ -109,7 +110,12 @@ export class Project {
         taskEl.querySelector('.task-description').textContent = task.description;
 
         const expandButton = taskEl.querySelector('.task-expand-button');
-        expandButton.addEventListener('click', this.revealMoreTaskHandler(taskEl));
+        expandButton.addEventListener('click', () => {
+            taskEl.querySelector('.task-element-expand').classList.toggle('show');
+            taskEl.querySelector('.delete-task-btn').classList.toggle('show');
+            taskEl.querySelector('.edit-task-btn').classList.toggle('show');
+            taskEl.querySelector('.done-task-btn').classList.toggle('show');
+        });
 
         taskList.appendChild(taskEl);
     }

@@ -1,4 +1,5 @@
-import { FormSubmit } from './FormSubmits.js';
+import { projectFormSubmit } from './projectFormSubmit.js';
+import { taskFormSubmit } from './taskFormSubmit.js';
 
 export class ModalHandler {
     constructor(id, type) {
@@ -19,9 +20,9 @@ export class ModalHandler {
 
     connectSubmitButton() {
         const button = this.modal.querySelector('button').nextElementSibling;
-        if (this.type === 'project') {
+        
             button.addEventListener('click', this.submitButtonHandler.bind(event));
-        }
+        
     }
 
     connectCancelButton() {
@@ -39,8 +40,17 @@ export class ModalHandler {
     }
 
     submitButtonHandler = (e) => {
+        const mainProjectEl = document.getElementById('main-project-element');
         e.preventDefault();
-        new FormSubmit();
+        if (this.type = 'project') {
+            new projectFormSubmit();
+        } else if (
+                   this.type = 'task' &&
+                   mainProjectEl.id !== undefined
+            ) {
+            new taskFormSubmit(mainProjectEl.id);
+        }
+        
         this.closeModalHandler();
         this.form.reset();
     }

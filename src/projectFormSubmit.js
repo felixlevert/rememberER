@@ -1,7 +1,7 @@
 import { projectsDb } from './projectsDatabase.js';
 import { Project } from './Project.js';
 
-export class FormSubmit {
+export class projectFormSubmit {
 
     constructor() {
         this.projId = projectsDb.length + 1;
@@ -22,6 +22,7 @@ export class FormSubmit {
 
     submitNewProjectForm() {
         projectsDb.push(this.newProjectObject);
-        new Project(this.projId, this.projType, this.projTitle, this.projDesc);
+        const newProj = new Project(this.projId, this.projType, this.projTitle, this.projDesc);
+        newProj.projectNavHandler();
     }
 }

@@ -117,7 +117,7 @@ body {
     outline: 0
 }
 
-#main-project-element {
+.main-project-element {
     position: fixed;
     width: 80%;
     top: 6em;
@@ -127,7 +127,7 @@ body {
     justify-content: center;
 }
 
-#main-project-element.show {
+.main-project-element.show {
     visibility: visible;
 }
 
@@ -220,12 +220,13 @@ body {
     height: 0px;
     width: 100%;
     padding: 0em;
+    margin-left: 2em;
     margin-top: -2em;
     list-style: none;
     color: hsla(0, 0%, 0%, 0.603);
     overflow: hidden;
     margin-bottom: 0em;
-    transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out, opacity 0.2s ease-out 0.1s;
     opacity: 0;
 }
 
@@ -233,7 +234,12 @@ body {
     height: 100%;
     padding: 2em;
     margin-bottom: -5em;
+    margin-left: 0;
     opacity: 1;
+}
+
+.task-description {
+    text-align: left;
 }
 
 
@@ -257,6 +263,13 @@ body {
     font-size: 19px;
     text-align: left;
     padding: 10px;
+    transition: all 0.4s ease-out 0.3s;
+    opacity: 0;
+}
+
+.delete-task-btn.show {
+    left: 0px;
+    opacity: 1;
 }
 
 .edit-task-btn {
@@ -270,6 +283,13 @@ body {
     font-size: 19px;
     text-align: left;
     padding: 10px;
+    transition: all 0.4s ease-out 0.4s;
+    opacity: 0;
+}
+
+.edit-task-btn.show {
+    left: 0px;
+    opacity: 1;
 }
 
 .done-task-btn {
@@ -283,6 +303,13 @@ body {
     font-size: 19px;
     text-align: left;
     padding: 10px;
+    transition: all 0.4s ease-out 0.5s;
+    opacity: 0;
+}
+
+.done-task-btn.show {
+    left: 0px;
+    opacity: 1;
 }
 
 
