@@ -40,13 +40,13 @@ export class ModalHandler {
     }
 
     submitButtonHandler = (e) => {
-        const mainProjectEl = document.getElementById('main-project-element');
+        const mainProjectEl = document.querySelector('.main-project-element');
         e.preventDefault();
-        if (this.type = 'project') {
+        if (this.type === 'project') {
             new projectFormSubmit();
         } else if (
-                   this.type = 'task' &&
-                   mainProjectEl.id !== undefined
+                   this.type === 'task' &&
+                   mainProjectEl.id !== undefined   
             ) {
             new taskFormSubmit(mainProjectEl.id);
         }

@@ -4,17 +4,19 @@ import { Project } from './Project.js';
 export class taskFormSubmit {
 
     constructor(projId) {
+        this.projId = projId;
         this.taskPriority = document.getElementById('new-task-form').querySelector('select').selectedOptions[0].value;
         this.taskTitle = document.getElementById('task-name').value;
         this.taskDueDate = document.getElementById('due-date').value;
         this.taskDesc = document.getElementById('task-description').value;
-        this.project = projectsDb.filter(proj => {
-            return proj.id === projId;
-        });
-        this.taskId = `${projId}-${this.project.tasks.length + 1}`
         this.submitNewTaskForm();
     }
 
+    project = projectsDb.filter(proj => {
+        return proj.id == this.projId;
+    });
+
+    taskId = `${this.projId}-${this.project.tasks.length + 1}`;
 
     newTaskObject = {
         id: this.taskId,
