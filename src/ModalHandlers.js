@@ -43,12 +43,12 @@ export class ModalHandler {
         const mainProjectEl = document.querySelector('.main-project-element');
         e.preventDefault();
         if (this.type === 'project') {
-            new projectFormSubmit();
+            projectFormSubmit();
         } else if (
                    this.type === 'task' &&
                    mainProjectEl.id !== undefined   
             ) {
-            new taskFormSubmit(mainProjectEl.id);
+            taskFormSubmit(mainProjectEl.id);
         }
         
         this.closeModalHandler();

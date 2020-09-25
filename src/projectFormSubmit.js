@@ -1,28 +1,30 @@
 import { projectsDb } from './projectsDatabase.js';
 import { Project } from './Project.js';
 
-export class projectFormSubmit {
+export const projectFormSubmit = () => {
 
-    constructor() {
-        this.projId = projectsDb.length + 1;
-        this.projType = document.getElementById('new-project-form').querySelector('select').selectedOptions[0].value;
-        this.projTitle = document.getElementById('project-name').value;
-        this.projDesc = document.getElementById('project-description').value;
-        this.submitNewProjectForm();
-    }
+   
+    const projId = projectsDb.length + 1;
+    const projType = document.getElementById('new-project-form').querySelector('select').selectedOptions[0].value;
+    const projTitle = document.getElementById('project-name').value;
+    const projDesc = document.getElementById('project-description').value;
+        
+    
 
 
-    newProjectObject = {
-        id: this.projId,
-        type: this.projType,
-        title: this.projTitle,
-        description: this.projDesc,
+    const newProjectObject = {
+        id: projId,
+        type: projType,
+        title: projTitle,
+        description: projDesc,
         tasks: []
     }
 
-    submitNewProjectForm() {
-        projectsDb.push(this.newProjectObject);
-        const newProj = new Project(this.projId, this.projType, this.projTitle, this.projDesc);
+    const submitNewProjectForm = () => {
+        projectsDb.push(newProjectObject);
+        const newProj = new Project(projId, projType, projTitle, projDesc);
         newProj.projectNavHandler();
     }
+    
+    submitNewProjectForm();
 }

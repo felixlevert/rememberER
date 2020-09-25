@@ -1,32 +1,34 @@
 import { projectsDb } from './projectsDatabase.js';
-import { Project } from './Project.js';
+import { createTaskElement } from './createTaskElement.js';
 
-export class taskFormSubmit {
+export const taskFormSubmit = (projId) => {
 
-    constructor(projId) {
-        this.projId = projId;
-        this.taskPriority = document.getElementById('new-task-form').querySelector('select').selectedOptions[0].value;
-        this.taskTitle = document.getElementById('task-name').value;
-        this.taskDueDate = document.getElementById('due-date').value;
-        this.taskDesc = document.getElementById('task-description').value;
-        this.submitNewTaskForm();
+    const taskPriority = document.getElementById('new-task-form').querySelector('select').selectedOptions[0].value;
+    const taskTitle = document.getElementById('task-name').value;
+    const taskDueDate = document.getElementById('due-date').value;
+    const taskDesc = document.getElementById('task-description').value;
+    const project = projectsDb.filter(proj => {
+        return proj.id == projId;
+    }); 
+    const taskId = `${projId}-${project[0].tasks.length + 1}`;
+    const placeholder = document.getElementById('project-tasks-placeholder');
+  
+
+    const newTaskObject = {
+        id: taskId,
+        priority: taskPriority,
+        title: taskTitle,
+        dueDate: taskDueDate,
+        description: taskDesc
     }
 
-    project = projectsDb.filter(proj => {
-        return proj.id == this.projId;
-    });
-
-    taskId = `${this.projId}-${this.project.tasks.length + 1}`;
-
-    newTaskObject = {
-        id: this.taskId,
-        type: this.taskType,
-        title: this.taskTitle,
-        description: this.taskDesc,
+    const submitNewTaskForm = () => {
+        project[0].tasks.push(newTaskObject);
+        createTaskElement(newTaskObject);
     }
 
-    submitNewTaskForm() {
-        this.project.tasks.push(this.newTaskObject);
-        Project.generateTaskElement(newTaskObject);
+    if (window.getComputedStyle(placeholder).visibility == 'visible') {
+        placeholder.classList.toggle('show');
     }
+    submitNewTaskForm();
 }
